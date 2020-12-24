@@ -21,20 +21,4 @@ jobs:
       with:
         github_email: 'tmigone.versionist@gmail.com'
         github_username: 'versionist'
-        github_token: ${{ secrets.GH_ADMIN_TOKEN }}
-  
-  publish:
-    needs: versionist
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout project code
-      uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-        registry-url: 'https://registry.npmjs.org'
-    - run: npm ci
-    - run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        github_token: ${{ secrets.GH_TOKEN }}
